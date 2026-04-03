@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Tina Puri — ThinkRoot Young Leaders</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a3a1a;
+    --moss: #2d5a2d;
+    --sage: #4a7c4a;
+    --fern: #6aaa6a;
+    --mint: #a8d5a8;
+    --mist: #e8f4e8;
+    --cream: #faf8f2;
+    --bark: #3d2b1a;
+    --gold: #c8963c;
+    --gold-light: #e8c078;
+    --text: #1e2820;
+    --text-mid: #3d4f3d;
+    --text-light: #6b7f6b;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250, 248, 242, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(74, 124, 74, 0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--forest);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-back {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--forest); }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--bark);
+    padding: 9rem 5rem 5rem;
+    color: var(--cream);
+  }
+
+  .page-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fern);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .page-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--sage);
+  }
+
+  .page-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: 600;
+    color: var(--gold-light);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  /* MAIN CONTENT */
+  .about-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 5rem;
+    padding: 5rem 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  /* BIO */
+  .bio-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .bio-section h2:first-child { margin-top: 0; }
+
+  .bio-section p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.85;
+    font-weight: 300;
+    margin-bottom: 1.1rem;
+  }
+
+  .bio-section p:last-child { margin-bottom: 0; }
+
+  /* SIDEBAR */
+  .sidebar {}
+
+  .sidebar-card {
+    background: var(--white);
+    border: 1px solid var(--mint);
+    border-radius: 4px;
+    padding: 1.75rem;
+    position: sticky;
+    top: 100px;
+  }
+
+  .sidebar-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1.25rem;
+  }
+
+  .highlight-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 0.78rem;
+    font-weight: 400;
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: var(--mist);
+    color: var(--moss);
+    border: 1px solid var(--mint);
+    line-height: 1.4;
+  }
+
+  .sidebar-avatar {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    background: var(--moss);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--mint);
+    font-weight: 600;
+    border: 1px solid rgba(168,213,168,0.2);
+    max-width: 200px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* CTA strip */
+  .about-cta {
+    background: var(--forest);
+    padding: 4rem 5rem;
+    text-align: center;
+  }
+
+  .about-cta p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--mint);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .btn-primary-light {
+    background: var(--gold);
+    color: var(--bark);
+    padding: 0.9rem 2.2rem;
+    border: none;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary-light:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--text);
+    padding: 2rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--mint);
+    font-weight: 600;
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .page-header { padding: 8rem 2rem 4rem; }
+    .about-main { grid-template-columns: 1fr; gap: 3rem; padding: 3rem 2rem; }
+    .sidebar-card { position: static; }
+    .sidebar-avatar { max-width: 120px; font-size: 2rem; }
+    .about-cta { padding: 3rem 2rem; }
+    footer { padding: 1.5rem 2rem; }
+    nav { padding: 1rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">ThinkRoot <span>Young Leaders</span></a>
+  <a href="index.html" class="nav-back">← Back to program</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-eyebrow">Your facilitator</div>
+  <h1 class="page-h1">About Tina</h1>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="about-main">
+
+  <div class="bio-section">
+    <p>Hi, I'm Tina Puri. For over two decades I built a career in software — steady, capable, and outwardly fine. Internally, my body was carrying far more than I realized. Eventually everything caught up with me: fibromyalgia, chronic fatigue, and severe anxiety left me barely functioning.</p>
+
+    <p>What changed everything wasn't managing symptoms — it was addressing the root cause. I learned to work at the deepest layer of the self, transforming the core patterns that were quietly shaping my health, my relationships, and my sense of purpose. When those shifted, everything shifted. I didn't just recover — I got my life back: greater clarity, renewed energy, and a fundamentally different relationship with myself and the world around me.</p>
+
+    <p>That experience is the foundation of everything I teach today.</p>
+
+    <h2>The approach</h2>
+
+    <p>Most people look for solutions on the outside — new habits, better routines, stress management techniques. Root-cause transformation works differently. It goes to the deeper patterns within us that quietly shape how we think, feel, respond, and show up in every area of life. When those patterns shift, the change ripples outward naturally — into health, relationships, focus, confidence, and more.</p>
+
+    <p>The tools your child will learn in this program work at that deeper level — building the inner foundation from which lasting change becomes possible.</p>
+
+    <h2>Real teaching, across real ages</h2>
+
+    <p>For the past four years I've volunteered weekly with seniors, teaching self-healing techniques and root-cause transformation practices — and witnessing how these tools create genuine, lasting change across all aspects of life. Alongside that, I teach values and inner awareness to middle schoolers, helping young students build self-understanding and resilience from the inside out.</p>
+
+    <p>I also lead ongoing online sessions bringing these same practices to adults across different backgrounds and life situations. Teaching across these age groups and formats has sharpened how I communicate these ideas in ways that are practical, accessible, and age-appropriate.</p>
+
+    <p>As a certified yoga instructor, holistic wellness practitioner, and Senior Peer Counselor for Fremont, Union City, and Newark, I've spent years supporting individuals and families in building more balanced, grounded lives.</p>
+
+    <h2>What this means for your child</h2>
+
+    <p>The techniques I bring into this program are drawn from current research in neuroscience, psychology, and mind-body health — and refined through years of personal practice and real teaching. They're designed to help your child understand themselves more deeply, navigate challenges with greater ease, and develop an inner foundation that serves them in every area of life.</p>
+
+    <p>My goal is simple: to give your child tools that actually work — not just for the summer, but for life. Every child is met where they are.</p>
+  </div>
+
+  <div class="sidebar">
+    <div class="sidebar-avatar">TP</div>
+    <div class="sidebar-card">
+      <div class="sidebar-label">Highlights</div>
+      <div class="highlight-tags">
+        <span class="tag">20+ years in software</span>
+        <span class="tag">Root-cause transformation</span>
+        <span class="tag">4 years teaching seniors</span>
+        <span class="tag">Values &amp; awareness — middle schoolers</span>
+        <span class="tag">Online wellness educator</span>
+        <span class="tag">Holistic wellness practitioner</span>
+        <span class="tag">Yoga instructor</span>
+        <span class="tag">Senior Peer Counselor</span>
+        <span class="tag">Neuroscience &amp; mind-body tools</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="about-cta">
+  <p>"My goal is simple: to give your child tools that actually work — not just for the summer, but for life."</p>
+  <a href="index.html#enroll" class="btn-primary-light">Reserve your child's spot →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ThinkRoot Young Leaders</div>
+  <div class="footer-copy">© 2026 ThinkRoot Young Leaders · Led by Tina Puri · Bay Area, CA</div>
+</footer>
+
+</body>
+</html>

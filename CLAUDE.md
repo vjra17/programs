@@ -40,7 +40,14 @@ Tina will ask for changes in plain, everyday language. Here are examples of what
 
 ## Previewing the site
 
-Use the built-in preview tool to render `index.html` after every change. This lets Tina see exactly what her visitors will see.
+The preview server is configured in `.claude/launch.json` and serves from `/tmp/thinkroot/`.
+
+**Every time before taking a preview screenshot**, run this first:
+```
+cp /Users/tina/Documents/code/thinkroot/index.html /tmp/thinkroot/index.html
+```
+
+Then start the server (`thinkroot-site`) and take the screenshot. This copy step is required because macOS blocks the preview server from reading directly out of the Documents folder.
 
 ---
 
