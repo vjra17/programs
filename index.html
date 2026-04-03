@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThinkRoot Young Leaders — Where Great Minds Take Root</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a3a1a;
+    --moss: #2d5a2d;
+    --sage: #4a7c4a;
+    --fern: #6aaa6a;
+    --mint: #a8d5a8;
+    --mist: #e8f4e8;
+    --cream: #faf8f2;
+    --bark: #3d2b1a;
+    --gold: #c8963c;
+    --gold-light: #e8c078;
+    --text: #1e2820;
+    --text-mid: #3d4f3d;
+    --text-light: #6b7f6b;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250, 248, 242, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(74, 124, 74, 0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--forest);
+    letter-spacing: -0.01em;
+  }
+
+  .nav-logo span {
+    color: var(--gold);
+  }
+
+  .nav-cta {
+    background: var(--forest);
+    color: var(--cream);
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--moss); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+
+  .hero-left {
+    padding: 6rem 3rem 4rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--sage);
+  }
+
+  .hero-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--forest);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-tagline {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 420px;
+    font-weight: 300;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 2.5rem;
+  }
+
+  .pill {
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+  }
+
+  .pill-forest { background: var(--forest); color: var(--mint); }
+  .pill-mist { background: var(--mist); color: var(--moss); border: 1px solid var(--mint); }
+  .pill-gold { background: #fdf3e3; color: var(--bark); border: 1px solid var(--gold-light); }
+
+  .hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--forest);
+    color: var(--cream);
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--moss); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--forest);
+    padding: 0.9rem 2rem;
+    border: 1.5px solid var(--forest);
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover { background: var(--mist); }
+
+  .hero-right {
+    background: var(--forest);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 600px;
+  }
+
+  .hero-visual {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .tree-svg {
+    width: 220px;
+    opacity: 0.92;
+    margin-bottom: 2rem;
+  }
+
+  .hero-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--mint);
+    line-height: 1.5;
+    max-width: 300px;
+  }
+
+  .hero-quote-attr {
+    font-size: 0.75rem;
+    color: var(--fern);
+    margin-top: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Decorative circles */
+  .circle-deco {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(106,170,106,0.2);
+  }
+
+  .c1 { width: 400px; height: 400px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .c2 { width: 580px; height: 580px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .c3 { width: 760px; height: 760px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+
+  /* PROBLEM STRIP */
+  .problem-strip {
+    background: var(--gold);
+    padding: 1.1rem 2rem;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--bark);
+    letter-spacing: 0.01em;
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 5rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--mint);
+    max-width: 60px;
+  }
+
+  .section-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 600;
+    color: var(--forest);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    max-width: 680px;
+  }
+
+  .section-body {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 620px;
+    font-weight: 300;
+  }
+
+  /* PROBLEM / SOLUTION */
+  .two-col-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .problem-box {
+    background: #fff8f0;
+    border: 1px solid #f0d8b8;
+    border-radius: 4px;
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+
+  .problem-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1.2rem;
+    align-items: flex-start;
+  }
+
+  .problem-item:last-child { margin-bottom: 0; }
+
+  .problem-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .problem-text {
+    font-size: 0.95rem;
+    color: var(--bark);
+    line-height: 1.6;
+  }
+
+  /* WHAT THEY LEARN */
+  .learn-section {
+    background: var(--forest);
+    color: var(--cream);
+  }
+
+  .learn-section .section-label { color: var(--fern); }
+  .learn-section .section-label::after { background: var(--sage); }
+  .learn-section .section-h2 { color: var(--mint); }
+
+  .learn-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .learn-card {
+    border: 1px solid rgba(106,170,106,0.25);
+    border-radius: 4px;
+    padding: 1.75rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .learn-card:hover {
+    border-color: var(--fern);
+    background: rgba(106,170,106,0.07);
+  }
+
+  .learn-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    line-height: 1;
+  }
+
+  .learn-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--mint);
+    margin-bottom: 0.5rem;
+  }
+
+  .learn-desc {
+    font-size: 0.88rem;
+    color: var(--fern);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* PROGRAM DETAILS */
+  .details-section { background: var(--mist); }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .detail-card {
+    background: var(--white);
+    border: 1px solid var(--mint);
+    border-radius: 4px;
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+  }
+
+  .detail-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .detail-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 0.3rem;
+    line-height: 1.1;
+  }
+
+  .detail-label {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+  }
+
+  /* JOURNEY */
+  .journey-section {}
+
+  .weeks-list {
+    margin-top: 3rem;
+    display: grid;
+    gap: 0;
+  }
+
+  .week-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--mist);
+    align-items: start;
+  }
+
+  .week-item:last-child { border-bottom: none; }
+
+  .week-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--mint);
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  .week-content {}
+  .week-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: 0.3rem;
+  }
+
+  .week-theme {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .week-desc {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ABOUT */
+  .about-section {
+    background: var(--bark);
+    color: var(--cream);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .about-avatar {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    background: var(--moss);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--mint);
+    font-weight: 600;
+    border: 1px solid rgba(168,213,168,0.2);
+    max-width: 260px;
+  }
+
+  .about-section .section-label { color: var(--fern); }
+  .about-section .section-label::after { background: var(--sage); }
+  .about-section .section-h2 { color: var(--gold-light); max-width: 100%; }
+  .about-section .section-body { color: #c8d4c8; max-width: 100%; }
+
+  .about-note {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-left: 2px solid var(--gold);
+    font-size: 0.88rem;
+    color: var(--fern);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--forest);
+    text-align: center;
+    padding: 7rem 3rem;
+  }
+
+  .cta-section .section-label {
+    justify-content: center;
+    color: var(--fern);
+  }
+
+  .cta-section .section-label::after { display: none; }
+
+  .cta-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    color: var(--mint);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-sub {
+    font-size: 1rem;
+    color: var(--fern);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .cta-spots {
+    display: inline-block;
+    background: rgba(200,150,60,0.15);
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+  }
+
+  .btn-primary-light {
+    background: var(--gold);
+    color: var(--bark);
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary-light:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .cta-disclaimer {
+    margin-top: 2.5rem;
+    font-size: 0.75rem;
+    color: var(--sage);
+    line-height: 1.6;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--text);
+    padding: 2rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--mint);
+    font-weight: 600;
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.25s; }
+  .delay-3 { animation-delay: 0.4s; }
+  .delay-4 { animation-delay: 0.55s; }
+  .delay-5 { animation-delay: 0.7s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 360px; }
+    .hero-left { padding: 5rem 2rem 3rem; }
+    section { padding: 4rem 2rem; }
+    .two-col-section { grid-template-columns: 1fr; gap: 2rem; }
+    .learn-grid { grid-template-columns: 1fr 1fr; }
+    .details-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-avatar { max-width: 140px; font-size: 2.5rem; }
+    .week-item { grid-template-columns: 50px 1fr; gap: 1rem; }
+    footer { padding: 1.5rem 2rem; }
+    nav { padding: 1rem 1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .learn-grid { grid-template-columns: 1fr; }
+    .details-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">ThinkRoot <span>Young Leaders</span></div>
+  <a href="#enroll" class="nav-cta">Reserve a spot</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding: 0;">
+  <div class="hero-left">
+    <div class="hero-eyebrow fade-up delay-1">Science-based mindset program</div>
+    <h1 class="hero-h1 fade-up delay-2">Where great minds<br><em>take root.</em></h1>
+    <p class="hero-tagline fade-up delay-3">The science of your inner world — built for the next generation of leaders. Ages 6–14.</p>
+    <div class="hero-meta fade-up delay-4">
+      <span class="pill pill-forest">Ages 6–14</span>
+      <span class="pill pill-mist">6 weeks · 75 min/session</span>
+      <span class="pill pill-gold">Small group · $120</span>
+    </div>
+    <div class="hero-buttons fade-up delay-5">
+      <a href="#enroll" class="btn-primary">Reserve your child's spot</a>
+      <a href="#program" class="btn-secondary">Learn more</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="circle-deco c1"></div>
+    <div class="circle-deco c2"></div>
+    <div class="circle-deco c3"></div>
+    <div class="hero-visual">
+      <svg class="tree-svg" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="80" rx="60" ry="70" fill="#2d5a2d" opacity="0.7"/>
+        <ellipse cx="100" cy="60" rx="45" ry="55" fill="#3d7a3d" opacity="0.8"/>
+        <ellipse cx="100" cy="42" rx="32" ry="40" fill="#4a7c4a" opacity="0.9"/>
+        <rect x="92" y="145" width="16" height="55" rx="2" fill="#3d2b1a" opacity="0.8"/>
+        <ellipse cx="70" cy="100" rx="25" ry="28" fill="#2d5a2d" opacity="0.5"/>
+        <ellipse cx="130" cy="95" rx="28" ry="30" fill="#2d5a2d" opacity="0.5"/>
+        <line x1="100" y1="200" x2="60" y2="220" stroke="#3d2b1a" stroke-width="2.5" opacity="0.5"/>
+        <line x1="100" y1="200" x2="140" y2="220" stroke="#3d2b1a" stroke-width="2.5" opacity="0.5"/>
+        <line x1="100" y1="200" x2="100" y2="228" stroke="#3d2b1a" stroke-width="3" opacity="0.6"/>
+        <circle cx="88" cy="52" r="3" fill="#c8963c" opacity="0.9"/>
+        <circle cx="108" cy="38" r="2.5" fill="#c8963c" opacity="0.8"/>
+        <circle cx="100" cy="60" r="2" fill="#e8c078" opacity="0.7"/>
+        <circle cx="116" cy="55" r="2.5" fill="#c8963c" opacity="0.85"/>
+      </svg>
+      <div class="hero-quote">"Where great minds take root."</div>
+      <div class="hero-quote-attr">ThinkRoot Young Leaders</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM STRIP -->
+<div class="problem-strip">
+  Schools teach reading, writing, and arithmetic. But who teaches kids how to manage their own mind?
+</div>
+
+<!-- PROBLEM / INTRO -->
+<section id="program">
+  <div class="two-col-section">
+    <div>
+      <div class="section-label">The gap</div>
+      <h2 class="section-h2">Your child is being taught everything except how to think.</h2>
+      <p class="section-body">Every child carries a remarkable inner world — thoughts, emotions, self-beliefs — that shapes everything from their grades to their friendships to their confidence. Yet no one teaches them how it works.</p>
+    </div>
+    <div>
+      <p class="section-body" style="margin-top: 3.5rem;">ThinkRoot Young Leaders fills that gap. In 6 weekly sessions, children ages 6–14 discover the science behind their own minds — and leave with a practical toolkit they'll use for life.</p>
+      <div class="problem-box">
+        <div class="problem-item">
+          <div class="problem-dot"></div>
+          <div class="problem-text">Anxiety and self-doubt that no one has given them tools to address</div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-dot"></div>
+          <div class="problem-text">Negative thought patterns that repeat without them understanding why</div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-dot"></div>
+          <div class="problem-text">No framework for handling big emotions under pressure</div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-dot"></div>
+          <div class="problem-text">A growing sense that feelings are something that happen to them — not something they can work with</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THEY LEARN -->
+<section class="learn-section">
+  <div class="section-label">What they discover</div>
+  <h2 class="section-h2">Six skills that change everything.</h2>
+  <p class="section-body" style="color: #a8c8a8; font-weight: 300;">Each week builds on the last — creating a complete foundation of inner science that children can draw on for the rest of their lives.</p>
+  <div class="learn-grid">
+    <div class="learn-card">
+      <div class="learn-num">01</div>
+      <div class="learn-title">The science of thought</div>
+      <div class="learn-desc">Why the brain generates 60,000+ thoughts a day — and why most are negative by design. They are not their thoughts.</div>
+    </div>
+    <div class="learn-card">
+      <div class="learn-num">02</div>
+      <div class="learn-title">How information gets stored</div>
+      <div class="learn-desc">Neuroplasticity and emotional memory. What we experience shapes us — and those patterns can be changed.</div>
+    </div>
+    <div class="learn-card">
+      <div class="learn-num">03</div>
+      <div class="learn-title">Rewiring thought patterns</div>
+      <div class="learn-desc">Using Hebb's Law and cognitive reframing to turn negative self-talk into accurate, empowering inner dialogue.</div>
+    </div>
+    <div class="learn-card">
+      <div class="learn-num">04</div>
+      <div class="learn-title">The science of kindness</div>
+      <div class="learn-desc">Oxytocin, prosocial behavior, and why compassion is a biological superpower — not just a nice idea.</div>
+    </div>
+    <div class="learn-card">
+      <div class="learn-num">05</div>
+      <div class="learn-title">Forgiveness as a reset</div>
+      <div class="learn-desc">How holding resentment keeps the body in chronic stress — and why letting go is something you do for yourself.</div>
+    </div>
+    <div class="learn-card">
+      <div class="learn-num">06</div>
+      <div class="learn-title">I am the author</div>
+      <div class="learn-desc">Bringing it together: your child leaves with a personal inner science toolkit and the confidence to use it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM DETAILS -->
+<section class="details-section">
+  <div class="section-label">Program details</div>
+  <h2 class="section-h2">Everything you need to know.</h2>
+  <div class="details-grid">
+    <div class="detail-card">
+      <span class="detail-icon">🌿</span>
+      <div class="detail-value">6</div>
+      <div class="detail-label">Weekly sessions</div>
+    </div>
+    <div class="detail-card">
+      <span class="detail-icon">⏱</span>
+      <div class="detail-value">75 min</div>
+      <div class="detail-label">Per session</div>
+    </div>
+    <div class="detail-card">
+      <span class="detail-icon">👥</span>
+      <div class="detail-value">10 kids</div>
+      <div class="detail-label">Maximum group size</div>
+    </div>
+    <div class="detail-card">
+      <span class="detail-icon">✦</span>
+      <div class="detail-value">$120</div>
+      <div class="detail-label">Full program investment</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem; max-width: 680px;">
+    <p class="section-body">Each session follows a consistent rhythm: breathwork to settle, a science concept, hands-on activity, journaling, and group reflection. The structure creates safety — children always know what to expect, so they can go deeper each week.</p>
+    <p class="section-body" style="margin-top: 1rem;">Materials included: personal journal, printed worksheets, weekly takeaway cards. Ages 6–14, mixed elementary and middle school.</p>
+  </div>
+</section>
+
+<!-- WEEKLY JOURNEY -->
+<section>
+  <div class="section-label">The journey</div>
+  <h2 class="section-h2">Six weeks. One complete inner science foundation.</h2>
+  <div class="weeks-list">
+    <div class="week-item">
+      <div class="week-num">01</div>
+      <div class="week-content">
+        <div class="week-title">Meet your mind</div>
+        <div class="week-theme">"You are not your thoughts. You are the one watching them."</div>
+        <div class="week-desc">Introduction to how the brain generates thoughts, the negativity bias, and the observer practice. Children learn to create space between themselves and their thoughts.</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-num">02</div>
+      <div class="week-content">
+        <div class="week-title">How information gets stored</div>
+        <div class="week-theme">"Your brain is always learning — even from things that hurt."</div>
+        <div class="week-desc">Neuroplasticity and emotional memory. The "Backpack" exercise — understanding what we carry and where it came from.</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-num">03</div>
+      <div class="week-content">
+        <div class="week-title">The power of patterns</div>
+        <div class="week-theme">"What you repeat, you strengthen."</div>
+        <div class="week-desc">Hebb's Law and cognitive reframing. Children practice upgrading their own thought patterns with science-based tools.</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-num">04</div>
+      <div class="week-content">
+        <div class="week-title">Love, compassion, and the science behind them</div>
+        <div class="week-theme">"Kindness is a biological superpower."</div>
+        <div class="week-desc">Oxytocin, heart coherence, and the compassion experiment. Children discover that how we treat others — and ourselves — has measurable effects on the body.</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-num">05</div>
+      <div class="week-content">
+        <div class="week-title">Forgiveness as a nervous system reset</div>
+        <div class="week-theme">"Letting go is something you do for yourself."</div>
+        <div class="week-desc">The physiology of resentment and release. Children learn that forgiveness is not about excusing — it's about stopping the body from re-living injury on repeat.</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-num">06</div>
+      <div class="week-content">
+        <div class="week-title">I am the author</div>
+        <div class="week-theme">"You have more influence over your inner world than you think."</div>
+        <div class="week-desc">Synthesis and celebration. Each child creates their personal inner science toolkit and receives their program certificate.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="about-grid">
+    <div>
+      <div class="about-avatar">IP</div>
+    </div>
+    <div>
+      <div class="section-label">Your facilitator</div>
+      <h2 class="section-h2">Tina Puri</h2>
+      <p class="section-body">Tina is a certified wellness educator and mindfulness practitioner with over 15 years of deep experience in mind-body science, inner transformation, and wisdom teaching.</p>
+      <p class="section-body" style="margin-top: 1rem;">After a successful career in software, Tina's own profound healing journey led her to dedicate her life to understanding how the mind shapes our health, relationships, and sense of self. She currently volunteers as an educator, teaching mindset principles and inner wisdom to seniors and students in her community.</p>
+      <p class="section-body" style="margin-top: 1rem;">Those who learn with her describe her as warm, grounding, and deeply effective — someone who makes complex inner work feel simple, safe, and immediately useful.</p>
+      <div class="about-note">ThinkRoot Young Leaders is educational in nature and is not a substitute for professional mental health support.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / ENROLL -->
+<section class="cta-section" id="enroll">
+  <div class="section-label" style="justify-content:center;">Enroll now</div>
+  <h2 class="cta-h2">Give your child the foundation that lasts a lifetime.</h2>
+  <p class="cta-sub">6 weeks. 75 minutes a week. Tools they will use forever.</p>
+  <div class="cta-spots">Only 10 spots available this summer</div>
+  <br><br>
+  <a href="mailto:your@email.com" class="btn-primary-light">Reserve your child's spot →</a>
+  <p class="cta-disclaimer">To enroll or ask questions, contact Tina Puri directly at [your email / phone]. This program is educational in nature and is not a substitute for professional mental health support.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ThinkRoot Young Leaders</div>
+  <div class="footer-copy">© 2026 ThinkRoot Young Leaders · Led by Tina Puri · Bay Area, CA</div>
+</footer>
+
+</body>
+</html>
