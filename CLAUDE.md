@@ -53,7 +53,7 @@ When Tina says **"publish"**, **"put it live"**, **"make it go live"**, **"push 
 2. Confirm the push succeeded
 3. Tell Tina: "Done! Your site will be live at [her URL] within a minute or two."
 
-Her GitHub Pages URL will be: `https://vjra17.github.io/thinkroot/`
+Her GitHub Pages URL will be: `https://vjra17.github.io/programs/`
 
 ---
 
