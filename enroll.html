@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enroll — ThinkRoot Young Leaders</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a3a1a;
+    --moss: #2d5a2d;
+    --sage: #4a7c4a;
+    --fern: #6aaa6a;
+    --mint: #a8d5a8;
+    --mist: #e8f4e8;
+    --cream: #faf8f2;
+    --bark: #3d2b1a;
+    --gold: #c8963c;
+    --gold-light: #e8c078;
+    --text: #1e2820;
+    --text-mid: #3d4f3d;
+    --text-light: #6b7f6b;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250, 248, 242, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(74, 124, 74, 0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--forest);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-back {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--forest); }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--forest);
+    padding: 9rem 5rem 4.5rem;
+    color: var(--cream);
+  }
+
+  .page-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fern);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .page-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--sage);
+  }
+
+  .page-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 600;
+    color: var(--mint);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .page-sub {
+    font-size: 0.95rem;
+    color: var(--fern);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* FORM LAYOUT */
+  .form-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem 5rem;
+  }
+
+  /* FIELDSET GROUPS */
+  .form-group {
+    margin-bottom: 3rem;
+  }
+
+  .form-group-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--mint);
+    letter-spacing: -0.01em;
+  }
+
+  /* FIELD */
+  .field {
+    margin-bottom: 1.25rem;
+  }
+
+  .field label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .field label .req {
+    color: var(--gold);
+    margin-left: 2px;
+  }
+
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field input[type="date"],
+  .field textarea,
+  .field select {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--mint);
+    border-radius: 2px;
+    background: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    font-weight: 300;
+    transition: border-color 0.2s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(74,124,74,0.08);
+  }
+
+  .field textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.6;
+  }
+
+  .field-hint {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-top: 0.3rem;
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* TWO COL */
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* RADIO / CHECKBOX */
+  .radio-group, .check-group {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  .radio-group label, .check-group label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  .radio-group input[type="radio"],
+  .check-group input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--forest);
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  /* AGREEMENT BLOCK */
+  .agreement-block {
+    background: var(--mist);
+    border: 1px solid var(--mint);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .agreement-block p {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .agreement-block p:last-child { margin-bottom: 0; }
+
+  .agreement-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 1rem;
+  }
+
+  .agreement-check input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--forest);
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  .agreement-check label {
+    font-size: 0.85rem;
+    color: var(--forest);
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 1.5;
+  }
+
+  /* CONTACT STRIP */
+  .contact-strip {
+    background: #fff8f0;
+    border: 1px solid #f0d8b8;
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    font-size: 0.85rem;
+    color: var(--bark);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  /* SUBMIT */
+  .submit-area {
+    text-align: center;
+    padding-top: 1rem;
+  }
+
+  .btn-submit {
+    background: var(--forest);
+    color: var(--cream);
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.02em;
+    display: inline-block;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .btn-submit:hover { background: var(--moss); transform: translateY(-1px); }
+
+  .submit-note {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--text);
+    padding: 2rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--mint);
+    font-weight: 600;
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .page-header { padding: 8rem 2rem 3.5rem; }
+    .form-wrap { padding: 3rem 1.25rem 4rem; }
+    .field-row { grid-template-columns: 1fr; }
+    footer { padding: 1.5rem 2rem; }
+    nav { padding: 1rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">ThinkRoot <span>Young Leaders</span></a>
+  <a href="index.html" class="nav-back">← Back to program</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-eyebrow">Program enrollment</div>
+  <h1 class="page-h1">Reserve your child's spot</h1>
+  <p class="page-sub">Please complete this form for each child enrolling. All information is kept strictly confidential.</p>
+</div>
+
+<!-- FORM -->
+<div class="form-wrap">
+
+  <form action="https://formsubmit.co/vjrasoulseva@gmail.com" method="POST">
+
+    <!-- Hidden config fields -->
+    <input type="hidden" name="_subject" value="New Enrollment — ThinkRoot Young Leaders">
+    <input type="hidden" name="_next" value="https://vjra17.github.io/programs/thankyou.html">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
+    <!-- CHILD INFO -->
+    <div class="form-group">
+      <div class="form-group-title">About your child</div>
+
+      <div class="field">
+        <label>Child's full name <span class="req">*</span></label>
+        <input type="text" name="Child's Name" required placeholder="First and last name">
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Date of birth <span class="req">*</span></label>
+          <input type="date" name="Date of Birth" required>
+        </div>
+        <div class="field">
+          <label>Age</label>
+          <input type="text" name="Age" placeholder="e.g. 10">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Grade <span class="req">*</span></label>
+        <input type="text" name="Grade" required placeholder="e.g. 4th grade">
+      </div>
+    </div>
+
+    <!-- PARENT INFO -->
+    <div class="form-group">
+      <div class="form-group-title">Parent / guardian information</div>
+
+      <div class="field">
+        <label>Parent / guardian name <span class="req">*</span></label>
+        <input type="text" name="Parent Name" required placeholder="Your full name">
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Phone <span class="req">*</span></label>
+          <input type="tel" name="Phone" required placeholder="(___) ___-____">
+        </div>
+        <div class="field">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" name="Email" required placeholder="you@example.com">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Emergency contact name + phone <span class="req">*</span></label>
+        <input type="text" name="Emergency Contact" required placeholder="Name and phone number">
+      </div>
+    </div>
+
+    <!-- ABOUT YOUR CHILD -->
+    <div class="form-group">
+      <div class="field">
+        <label>Learning differences, sensory sensitivities, or needs</label>
+        <textarea name="Learning Differences or Needs" placeholder="Please share anything that would help us support your child well. All information is kept strictly confidential."></textarea>
+        <div class="field-hint">This is optional, but very helpful for us to know in advance.</div>
+      </div>
+
+      <div class="field">
+        <label>What made you interested in ThinkRoot Young Leaders for your child? <span class="req">*</span></label>
+        <textarea name="Interest in Program" required placeholder="Tell us a little about what brought you here..."></textarea>
+      </div>
+
+      <div class="field">
+        <label>Is there anything specific you hope your child will gain from the program?</label>
+        <textarea name="Hopes for Child" placeholder="Any goals, areas of focus, or things you'd love to see shift..."></textarea>
+      </div>
+    </div>
+
+    <!-- PROGRAM AGREEMENT -->
+    <div class="form-group">
+      <div class="form-group-title">Program agreement</div>
+
+      <div class="agreement-block">
+        <p>ThinkRoot Young Leaders is an educational program focused on mindset skills, emotional intelligence, and mind-body science. It is not therapy, counseling, or a mental health intervention, and is not a substitute for professional mental health support.</p>
+        <p>I give permission for my child to participate in all program activities including breathwork, journaling, movement exercises, and group discussion.</p>
+        <p>I understand that personal reflections shared by my child are kept confidential within the group.</p>
+        <div class="agreement-check">
+          <input type="checkbox" id="agree1" name="Agrees to Program Terms" value="Yes — I understand and agree" required>
+          <label for="agree1">I have read and agree to all of the above. <span style="color:var(--gold);">*</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Testimonial permission <span class="req">*</span></label>
+        <div class="field-hint" style="margin-bottom: 0.5rem;">May your child's first name and general feedback be used in anonymized program testimonials?</div>
+        <div class="radio-group">
+          <label><input type="radio" name="Testimonial Permission" value="Yes, I give permission" required> Yes, I give permission</label>
+          <label><input type="radio" name="Testimonial Permission" value="No, I do not give permission"> No, I do not give permission</label>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Parent / guardian name (print) <span class="req">*</span></label>
+          <input type="text" name="Parent Signature Name" required placeholder="Full name as signature">
+        </div>
+        <div class="field">
+          <label>Date <span class="req">*</span></label>
+          <input type="date" name="Signature Date" required>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-strip">
+      Questions before enrolling? WhatsApp or call us at <strong>(510) 509.5072</strong>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-area">
+      <button type="submit" class="btn-submit">Submit enrollment form →</button>
+      <p class="submit-note">You will receive a confirmation once our team reviews your form.<br>ThinkRoot Young Leaders — Where great minds take root.<br><br>This program is educational in nature and is not a substitute for professional mental health support.</p>
+    </div>
+
+  </form>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ThinkRoot Young Leaders</div>
+  <div class="footer-copy">© 2026 ThinkRoot Young Leaders</div>
+</footer>
+
+</body>
+</html>
