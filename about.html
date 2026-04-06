@@ -103,99 +103,178 @@
     color: var(--gold-light);
     line-height: 1.15;
     letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .page-role {
+    font-size: 0.88rem;
+    color: var(--fern);
+    font-weight: 300;
+    letter-spacing: 0.04em;
   }
 
   /* MAIN CONTENT */
-  .about-main {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 5rem;
-    padding: 5rem 5rem;
-    max-width: 1200px;
+  .bio-wrap {
+    max-width: 820px;
     margin: 0 auto;
-    align-items: start;
+    padding: 5rem 3rem 5rem;
   }
 
-  /* BIO */
-  .bio-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--forest);
-    margin-top: 2.5rem;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.01em;
-  }
-
-  .bio-section h2:first-child { margin-top: 0; }
-
-  .bio-section p {
+  /* BODY TEXT */
+  .bio-p {
     font-size: 1rem;
     color: var(--text-mid);
     line-height: 1.85;
     font-weight: 300;
-    margin-bottom: 1.1rem;
-  }
-
-  .bio-section p:last-child { margin-bottom: 0; }
-
-  /* SIDEBAR */
-  .sidebar {}
-
-  .sidebar-card {
-    background: var(--white);
-    border: 1px solid var(--mint);
-    border-radius: 4px;
-    padding: 1.75rem;
-    position: sticky;
-    top: 100px;
-  }
-
-  .sidebar-label {
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--sage);
     margin-bottom: 1.25rem;
   }
 
-  .highlight-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  .bio-p:last-child { margin-bottom: 0; }
+
+  /* OPENING / CLOSING STATEMENT — green left border */
+  .statement {
+    border-left: 3px solid var(--sage);
+    padding-left: 1.5rem;
+    margin-bottom: 2.5rem;
   }
 
-  .tag {
-    font-size: 0.78rem;
+  .statement p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
     font-weight: 400;
-    padding: 5px 12px;
-    border-radius: 100px;
-    background: var(--mist);
-    color: var(--moss);
-    border: 1px solid var(--mint);
-    line-height: 1.4;
+    color: var(--forest);
+    line-height: 1.75;
   }
 
-  .sidebar-avatar {
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 4px;
-    background: var(--moss);
+  /* SECTION LABEL */
+  .sec-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1.25rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: var(--mint);
-    font-weight: 600;
-    border: 1px solid rgba(168,213,168,0.2);
-    max-width: 200px;
+    gap: 10px;
+    margin-top: 3rem;
+  }
+
+  .sec-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--mint);
+    max-width: 60px;
+  }
+
+  /* AAA PILLS */
+  .aaa-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
     margin-bottom: 1.5rem;
   }
 
-  /* CTA strip */
+  .aaa-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--forest);
+    color: var(--mint);
+    border-radius: 100px;
+    padding: 8px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  .aaa-pill .aaa-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  /* OUTCOME CARDS */
+  .outcome-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0 1.5rem;
+  }
+
+  .outcome-card {
+    background: var(--white);
+    border: 1px solid var(--mint);
+    border-left: 3px solid var(--sage);
+    border-radius: 4px;
+    padding: 1.25rem 1.1rem;
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* TESTIMONIAL PLACEHOLDERS */
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .testimonial-placeholder {
+    border: 1.5px dashed var(--mint);
+    border-radius: 4px;
+    padding: 2rem 1.25rem;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* WHY THIS PROGRAM — shaded box */
+  .why-box {
+    background: var(--mist);
+    border: 1px solid var(--mint);
+    border-radius: 4px;
+    padding: 2rem 2rem;
+    margin: 1.5rem 0;
+  }
+
+  .why-box p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.85;
+    font-weight: 300;
+  }
+
+  /* BRIDGE LINE */
+  .bio-bridge {
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-top: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  /* DISCLAIMER */
+  .bio-disclaimer {
+    margin-top: 2.5rem;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* CTA STRIP */
   .about-cta {
     background: var(--forest);
     padding: 4rem 5rem;
@@ -209,6 +288,9 @@
     color: var(--mint);
     margin-bottom: 1.5rem;
     line-height: 1.5;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .btn-primary-light {
@@ -256,12 +338,17 @@
   /* RESPONSIVE */
   @media (max-width: 900px) {
     .page-header { padding: 8rem 2rem 4rem; }
-    .about-main { grid-template-columns: 1fr; gap: 3rem; padding: 3rem 2rem; }
-    .sidebar-card { position: static; }
-    .sidebar-avatar { max-width: 120px; font-size: 2rem; }
+    .bio-wrap { padding: 3.5rem 1.5rem 4rem; }
+    .outcome-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
     .about-cta { padding: 3rem 2rem; }
     footer { padding: 1.5rem 2rem; }
     nav { padding: 1rem 1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .outcome-grid { grid-template-columns: 1fr; }
+    .testimonial-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -276,64 +363,90 @@
 <!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-eyebrow">Your facilitator</div>
-  <h1 class="page-h1">About Tina</h1>
+  <h1 class="page-h1">Tina Puri</h1>
+  <p class="page-role">Founder &amp; Program Director · ThinkRoot Young Leaders</p>
 </div>
 
-<!-- MAIN CONTENT -->
-<div class="about-main">
+<!-- BIO CONTENT -->
+<div class="bio-wrap">
 
-  <div class="bio-section">
-    <p>Hi, I'm Tina Puri. For over two decades I built a career in software — steady, capable, and outwardly fine. Internally, my body was carrying far more than I realized. Eventually everything caught up with me: fibromyalgia, chronic fatigue, and severe anxiety left me barely functioning.</p>
-
-    <p>What changed everything wasn't managing symptoms — it was addressing the root cause. I learned to work at the deepest layer of the self, transforming the core patterns that were quietly shaping my health, my relationships, and my sense of purpose. When those shifted, everything shifted. I didn't just recover — I got my life back: greater clarity, renewed energy, and a fundamentally different relationship with myself and the world around me.</p>
-
-    <p>That experience is the foundation of everything I teach today.</p>
-
-    <h2>The approach</h2>
-
-    <p>Most people look for solutions on the outside — new habits, better routines, stress management techniques. Root-cause transformation works differently. It goes to the deeper patterns within us that quietly shape how we think, feel, respond, and show up in every area of life. When those patterns shift, the change ripples outward naturally — into health, relationships, focus, confidence, and more.</p>
-
-    <p>The tools your child will learn in this program work at that deeper level — building the inner foundation from which lasting change becomes possible.</p>
-
-    <h2>Real teaching, across real ages</h2>
-
-    <p>For the past four years I've volunteered weekly with seniors, teaching self-healing techniques and root-cause transformation practices — and witnessing how these tools create genuine, lasting change across all aspects of life. Alongside that, I teach values and inner awareness to middle schoolers, helping young students build self-understanding and resilience from the inside out.</p>
-
-    <p>I also lead ongoing online sessions bringing these same practices to adults across different backgrounds and life situations. Teaching across these age groups and formats has sharpened how I communicate these ideas in ways that are practical, accessible, and age-appropriate.</p>
-
-    <p>As a certified yoga instructor, holistic wellness practitioner, and Senior Peer Counselor for Fremont, Union City, and Newark, I've spent years supporting individuals and families in building more balanced, grounded lives.</p>
-
-    <h2>What this means for your child</h2>
-
-    <p>The techniques I bring into this program are drawn from current research in neuroscience, psychology, and mind-body health — and refined through years of personal practice and real teaching. They're designed to help your child understand themselves more deeply, navigate challenges with greater ease, and develop an inner foundation that serves them in every area of life.</p>
-
-    <p>My goal is simple: to give your child tools that actually work — not just for the summer, but for life. Every child is met where they are.</p>
+  <!-- OPENING STATEMENT -->
+  <div class="statement">
+    <p>Some of the most important skills your child will ever need — how to manage their thoughts, handle pressure, and believe in themselves — are not taught in any school. Tina Puri has spent eight years studying exactly those skills. And she is now bringing them to your child.</p>
   </div>
 
-  <div class="sidebar">
-    <div class="sidebar-avatar">TP</div>
-    <div class="sidebar-card">
-      <div class="sidebar-label">Highlights</div>
-      <div class="highlight-tags">
-        <span class="tag">20+ years in software</span>
-        <span class="tag">Root-cause transformation</span>
-        <span class="tag">4 years teaching seniors</span>
-        <span class="tag">Values &amp; awareness — middle schoolers</span>
-        <span class="tag">Online wellness educator</span>
-        <span class="tag">Holistic wellness practitioner</span>
-        <span class="tag">Yoga instructor</span>
-        <span class="tag">Senior Peer Counselor</span>
-        <span class="tag">Neuroscience &amp; mind-body tools</span>
-      </div>
-    </div>
+  <!-- BODY -->
+  <p class="bio-p">Tina spent over two decades in software and technology before a health crisis changed the direction of her life. Fibromyalgia, chronic fatigue, and severe anxiety left her largely bedridden — and no conventional approach offered lasting relief. Faced with a problem that resisted every standard solution, she did what engineers do: she went to the root cause.</p>
+
+  <p class="bio-p">Over the next eight years — a study she continues to this day — she immersed herself in mind-body science and awareness practices, learning how thought patterns form, why they persist, and how they can be permanently changed. She recovered. And in doing so, she built a framework she now brings to everyone she teaches.</p>
+
+  <p class="bio-p">Her foundational principle: lasting change — whether in health, relationships, or academic performance — only becomes possible when you address the root, not just the symptoms at the surface. It is the same logic that drives good engineering. And it is the lens through which she teaches children to understand their own minds.</p>
+
+  <!-- THE AAA METHOD -->
+  <div class="sec-label">The AAA Method</div>
+
+  <div class="aaa-pills">
+    <div class="aaa-pill"><span class="aaa-letter">A</span> Aware</div>
+    <div class="aaa-pill"><span class="aaa-letter">A</span> Accept</div>
+    <div class="aaa-pill"><span class="aaa-letter">A</span> Act</div>
   </div>
+
+  <p class="bio-p">At the heart of Tina's teaching is a simple, science-backed framework she brings to every session — grounded in what neuroscience calls neuroplasticity: the brain's proven capacity to rewire itself when we consciously choose a different response. What you repeat, you reinforce.</p>
+
+  <!-- A RECORD OF SERVICE -->
+  <div class="sec-label">A record of service — and results</div>
+
+  <p class="bio-p">Tina has volunteered across school levels from kindergarten through high school, mentored in Scout programs, supported HOSA chapters, served on multiple PTAs, and founded a four-year intergenerational community program. She created stress management and gratitude programs embedded directly into a local high school — among the first of their kind on that campus.</p>
+
+  <p class="bio-p">For the past four years she has facilitated weekly wellness sessions for groups of 30 to 45 seniors, teaching awareness and self-regulation practices that participants describe as genuinely life-changing. She has worked with youth cohorts across multiple settings, applying the same awareness-based curriculum that forms the foundation of ThinkRoot.</p>
+
+  <p class="bio-p" style="margin-bottom: 1rem;">Across years of working with young people in community and educational settings, Tina has observed consistent and meaningful shifts:</p>
+
+  <!-- OUTCOME CARDS -->
+  <div class="outcome-grid">
+    <div class="outcome-card">Students developed a consistent daily reflection habit — showing up with discipline and rigor that their parents and teachers noticed.</div>
+    <div class="outcome-card">Insights and thinking matured well beyond their age — children began asking deeper questions about themselves, others, and the world around them.</div>
+    <div class="outcome-card">Emotional balance improved noticeably — children became less reactive, more grounded, and better able to navigate difficult moments.</div>
+    <div class="outcome-card">Students learned to connect what they experience in the world to what is happening inside them — a skill most adults never develop.</div>
+    <div class="outcome-card">Children developed intrinsic motivation — doing the inner work because it resonated, not because it was assigned or graded.</div>
+    <div class="outcome-card">Parents observed a shift in maturity, responsibility, and self-awareness that went beyond what any academic program had produced.</div>
+  </div>
+
+  <p class="bio-bridge">These are the shifts ThinkRoot Young Leaders is designed to produce — in a structured, six-week format built for children ages 8–14.</p>
+
+  <p class="bio-p">Those who have worked with Tina — students, parents, and adult participants alike — consistently describe her as a teacher who goes far beyond what is expected: present, precise, and genuinely invested in each person she works with.</p>
+
+  <!-- TESTIMONIALS -->
+  <div class="sec-label">What parents are saying</div>
+
+  <div class="testimonial-grid">
+    <div class="testimonial-placeholder">Parent testimonial coming soon</div>
+    <div class="testimonial-placeholder">Parent testimonial coming soon</div>
+    <div class="testimonial-placeholder">Parent testimonial coming soon</div>
+  </div>
+
+  <!-- WHY THIS PROGRAM -->
+  <div class="sec-label">Why this program, and why now</div>
+
+  <div class="why-box">
+    <p>The skills ThinkRoot teaches — self-awareness, thought pattern recognition, emotional regulation, inner discipline — are the foundation of every kind of excellence: academic, social, and personal. They determine whether a child can perform under pressure, recover from setbacks, build relationships that sustain them, and pursue the kind of higher education and meaningful career that reflects their true capability.</p>
+    <p style="margin-top: 1rem;">These skills are almost entirely absent from formal education. Tina knows firsthand what it costs to spend decades without them. She also knows — from her own recovery, from years of work with seniors, and from every child she has taught — what becomes possible when you learn them.</p>
+  </div>
+
+  <!-- CLOSING STATEMENT -->
+  <div class="statement" style="margin-top: 2.5rem; margin-bottom: 2rem;">
+    <p>ThinkRoot Young Leaders exists because she believes these are not enrichment skills. They are foundational ones. And the earlier a child builds this foundation, the more of their life they get to live from a place of clarity, confidence, and self-mastery.</p>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <p class="bio-disclaimer">ThinkRoot Young Leaders is educational in nature and is not a substitute for professional mental health support.</p>
 
 </div>
 
 <!-- CTA -->
 <div class="about-cta">
-  <p>"My goal is simple: to give your child tools that actually work — not just for the summer, but for life."</p>
-  <a href="index.html#enroll" class="btn-primary-light">Reserve your child's spot →</a>
+  <p>"The earlier a child builds this foundation, the more of their life they get to live from a place of clarity, confidence, and self-mastery."</p>
+  <a href="enroll.html" class="btn-primary-light">Reserve your child's spot →</a>
 </div>
 
 <!-- FOOTER -->
