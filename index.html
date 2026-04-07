@@ -77,6 +77,35 @@
 
   .nav-cta:hover { background: var(--moss); }
 
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    text-decoration: none;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--forest);
+    border-bottom-color: var(--sage);
+  }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+  }
+
   /* HERO */
   .hero {
     min-height: 100vh;
@@ -675,7 +704,13 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">ThinkRoot <span>Young Leaders</span></div>
-  <a href="enroll.html" class="nav-cta">Reserve a spot</a>
+  <nav class="nav-links">
+    <a href="#program">The Program</a>
+    <a href="#learn">What They Learn</a>
+    <a href="#about">About Tina</a>
+    <a href="#interest">Interest List</a>
+  </nav>
+  <a href="#interest" class="nav-cta">Join the interest list</a>
 </nav>
 
 <!-- HERO -->
@@ -688,10 +723,9 @@
       <span class="pill pill-forest">Ages 8–14</span>
       <span class="pill pill-mist">6 weeks · 75 min/session</span>
       <span class="pill pill-gold">Small group · $120</span>
-      <span class="pill pill-mist">Wednesdays · Jun 10 – Jul 15</span>
     </div>
     <div class="hero-buttons fade-up delay-5">
-      <a href="enroll.html" class="btn-primary">Reserve your child's spot</a>
+      <a href="#interest" class="btn-primary">Join the interest list</a>
       <a href="#program" class="btn-secondary">Learn more</a>
     </div>
   </div>
@@ -744,15 +778,15 @@
         </div>
         <div class="problem-item">
           <div class="problem-dot"></div>
-          <div class="problem-text">Negative thought patterns that repeat without them understanding why</div>
+          <div class="problem-text">Freedom from overthinking and the negative loops that drain their energy</div>
         </div>
         <div class="problem-item">
           <div class="problem-dot"></div>
-          <div class="problem-text">No framework for handling big emotions under pressure</div>
+          <div class="problem-text">No framework for handling tough situations — conflicts, pressure, big emotions</div>
         </div>
         <div class="problem-item">
           <div class="problem-dot"></div>
-          <div class="problem-text">A growing sense that feelings are something that happen to them — not something they can work with</div>
+          <div class="problem-text">A growing sense that feelings are something they can work with — not just survive</div>
         </div>
       </div>
     </div>
@@ -760,7 +794,7 @@
 </section>
 
 <!-- WHAT THEY LEARN -->
-<section class="learn-section">
+<section class="learn-section" id="learn">
   <div class="section-label">What they discover</div>
   <h2 class="section-h2">Six skills that change everything.</h2>
   <p class="section-body" style="color: #a8c8a8; font-weight: 300;">Each week builds on the last — creating a complete foundation of inner science that children can draw on for the rest of their lives.</p>
@@ -802,10 +836,6 @@
 <section class="details-section">
   <div class="section-label">Program details</div>
   <h2 class="section-h2">Everything you need to know.</h2>
-  <div style="display:inline-flex; align-items:center; gap:10px; background:var(--white); border:1px solid var(--mint); border-radius:2px; padding:0.6rem 1.1rem; margin-bottom:2rem; font-size:0.88rem; color:var(--moss); font-weight:500;">
-    <span style="font-size:1rem;">📅</span>
-    Wednesdays, June 10 – July 15 &nbsp;·&nbsp; 6:30 – 7:45 PM
-  </div>
   <div class="details-grid">
     <div class="detail-card">
       <span class="detail-icon">🌿</span>
@@ -832,7 +862,6 @@
   <div style="margin-top: 3rem; max-width: 680px;">
     <p class="section-body">Each session follows a consistent rhythm: breathwork to settle, a science concept, hands-on activity, journaling, and group reflection. The structure creates safety — children always know what to expect, so they can go deeper each week.</p>
     <p class="section-body" style="margin-top: 1rem;">Materials included: personal journal, printed worksheets, weekly takeaway cards. Ages 8–14.</p>
-    <p class="section-body" style="margin-top: 1rem;">📅 <strong>Wednesdays, June 10 – July 15 · 6:30 – 7:45 PM</strong></p>
   </div>
 </section>
 
@@ -893,7 +922,7 @@
 </section>
 
 <!-- ABOUT -->
-<section class="about-section">
+<section class="about-section" id="about">
   <div class="about-grid">
     <div>
       <div class="about-avatar">TP</div>
@@ -909,17 +938,141 @@
   </div>
 </section>
 
-<!-- CTA / ENROLL -->
-<section class="cta-section" id="enroll">
-  <div class="section-label" style="justify-content:center;">Enroll now</div>
-  <h2 class="cta-h2">Give your child the foundation that lasts a lifetime.</h2>
-  <p class="cta-sub">6 weeks. 75 minutes a week. Tools they will use forever.</p>
-  <p class="cta-sub" style="font-size:0.9rem; margin-bottom:1.5rem; margin-top:-1rem;">Wednesdays, June 10 – July 15 · 6:30 – 7:45 PM</p>
-  <div class="cta-spots">Only 15 spots available this summer</div>
-  <br><br>
-  <a href="enroll.html" class="btn-primary-light">Reserve your child's spot →</a>
-  <p class="cta-disclaimer">Questions? WhatsApp or call us at (510) 509.5072<br>This program is educational in nature and is not a substitute for professional mental health support.</p>
+<!-- INTEREST LIST -->
+<section class="cta-section" id="interest" style="padding: 5rem 3rem;">
+  <div class="section-label" style="justify-content:center; color: var(--fern);">Interest list</div>
+  <h2 class="cta-h2">Be the first to know when ThinkRoot comes to your area.</h2>
+  <p class="cta-sub" style="max-width: 560px; margin: 0 auto 2rem;">Sessions are forming now. Tell us where you are and we'll be in touch as soon as a group is confirmed near you.</p>
+
+  <iframe name="gform_iframe" style="display:none;"></iframe>
+
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLSe9Ifki1J2dOprucDkhVAyaN1wIMJY-4eAG1Ed_-hJgSQhPZg/formResponse" method="POST" target="gform_iframe" onsubmit="showConfirm()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(168,213,168,0.2); border-radius: 8px; max-width: 620px; margin: 0 auto 2.5rem; padding: 2rem 2.5rem; text-align: left;">
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+      <div>
+        <label style="display: block; font-size: 0.78rem; font-weight: 500; color: var(--fern); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px;">Parent name</label>
+        <input type="text" name="entry.410301422" placeholder="Your full name" style="width: 100%; padding: 0.65rem 0.9rem; border-radius: 4px; border: 1px solid rgba(168,213,168,0.3); background: rgba(255,255,255,0.08); color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;" />
+      </div>
+      <div>
+        <label style="display: block; font-size: 0.78rem; font-weight: 500; color: var(--fern); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px;">Email address</label>
+        <input type="email" name="entry.859105480" placeholder="your@email.com" style="width: 100%; padding: 0.65rem 0.9rem; border-radius: 4px; border: 1px solid rgba(168,213,168,0.3); background: rgba(255,255,255,0.08); color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;" />
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+      <div>
+        <label style="display: block; font-size: 0.78rem; font-weight: 500; color: var(--fern); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px;">Phone number</label>
+        <input type="tel" name="entry.65744569" placeholder="(415) 000-0000" style="width: 100%; padding: 0.65rem 0.9rem; border-radius: 4px; border: 1px solid rgba(168,213,168,0.3); background: rgba(255,255,255,0.08); color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;" />
+      </div>
+      <div>
+        <label style="display: block; font-size: 0.78rem; font-weight: 500; color: var(--fern); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px;">City / neighborhood</label>
+        <input type="text" name="entry.588300542" placeholder="e.g. Fremont, Pleasanton, Milpitas/San Jose" style="width: 100%; padding: 0.65rem 0.9rem; border-radius: 4px; border: 1px solid rgba(168,213,168,0.3); background: rgba(255,255,255,0.08); color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;" />
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+      <div>
+        <label style="display: block; font-size: 0.78rem; font-weight: 500; color: var(--fern); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px;">Child's age(s) — ages 8–14</label>
+        <input type="text" name="entry.1422687686" placeholder="e.g. 9, 12" style="width: 100%; padding: 0.65rem 0.9rem; border-radius: 4px; border: 1px solid rgba(168,213,168,0.3); background: rgba(255,255,255,0.08); color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;" />
+      </div>
+      <div>
+        <label style="display: block; font-size: 0.78rem; font-weight: 500; color: var(--fern); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px;">Number of children</label>
+        <select name="entry.116349439" style="width: 100%; padding: 0.65rem 0.9rem; border-radius: 4px; border: 1px solid rgba(168,213,168,0.3); background: rgba(30,56,32,0.95); color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;">
+          <option value="">Select</option>
+          <option value="1">1 child</option>
+          <option value="2">2 children</option>
+          <option value="3">3 or more</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 1rem;">
+      <label style="display: block; font-size: 0.78rem; font-weight: 500; color: var(--fern); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px;">Which 6-week session window works best for your family?</label>
+      <p style="font-size: 0.8rem; color: var(--fern); margin-bottom: 10px; opacity: 0.85;">Select all that could work — days will be confirmed once your group forms.</p>
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+        <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--mint); cursor: pointer; line-height: 1.4;">
+          <input type="checkbox" name="entry.852880699" value="Early summer" style="accent-color: #6aaa6a; margin-top: 2px; flex-shrink: 0;" />
+          <span><strong>Early summer</strong> — start early June, finish by mid-July<br><span style="font-size: 0.8rem; opacity: 0.75;">Done before the main summer travel period</span></span>
+        </label>
+        <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--mint); cursor: pointer; line-height: 1.4;">
+          <input type="checkbox" name="entry.852880699" value="Mid summer" style="accent-color: #6aaa6a; margin-top: 2px; flex-shrink: 0;" />
+          <span><strong>Mid summer</strong> — start mid-June, finish by end of July<br><span style="font-size: 0.8rem; opacity: 0.75;">Good middle ground if you travel early or late in summer</span></span>
+        </label>
+        <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--mint); cursor: pointer; line-height: 1.4;">
+          <input type="checkbox" name="entry.852880699" value="Late summer" style="accent-color: #6aaa6a; margin-top: 2px; flex-shrink: 0;" />
+          <span><strong>Late summer</strong> — start early July, finish by mid-August<br><span style="font-size: 0.8rem; opacity: 0.75;">After July 4th travel, wraps up as school approaches</span></span>
+        </label>
+        <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--mint); cursor: pointer; line-height: 1.4;">
+          <input type="checkbox" name="entry.852880699" value="Flexible" style="accent-color: #6aaa6a; margin-top: 2px; flex-shrink: 0;" />
+          <span><strong>Flexible</strong> — any window works for us</span>
+        </label>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 1rem;">
+      <label style="display: block; font-size: 0.78rem; font-weight: 500; color: var(--fern); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px;">Preferred session day(s)</label>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
+        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--mint); cursor: pointer;"><input type="checkbox" name="entry.1581778277" value="Weekday afternoon" style="accent-color: #6aaa6a;" /> Weekday afternoon</label>
+        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--mint); cursor: pointer;"><input type="checkbox" name="entry.1581778277" value="Weekday evening" style="accent-color: #6aaa6a;" /> Weekday evening</label>
+        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--mint); cursor: pointer;"><input type="checkbox" name="entry.1581778277" value="Saturday morning" style="accent-color: #6aaa6a;" /> Saturday morning</label>
+        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--mint); cursor: pointer;"><input type="checkbox" name="entry.1581778277" value="Sunday afternoon" style="accent-color: #6aaa6a;" /> Sunday afternoon</label>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 1rem;">
+      <label style="display: block; font-size: 0.78rem; font-weight: 500; color: var(--fern); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px;">Would you be open to supporting a group in your area?</label>
+      <select name="entry.1234450610" style="width: 100%; padding: 0.65rem 0.9rem; border-radius: 4px; border: 1px solid rgba(168,213,168,0.3); background: rgba(30,56,32,0.95); color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;">
+        <option value="">Select one</option>
+        <option value="Yes — I could host at my home if enough families in my area sign up">Yes — I could host at my home if enough families in my area sign up</option>
+        <option value="Yes — I could help organize a group by reaching out in my own circles">Yes — I could help organize a group by reaching out in my own circles</option>
+        <option value="No — I'd prefer to come to the Mission Fremont location">No — I'd prefer to come to the Mission Fremont location</option>
+        <option value="Not sure yet">Not sure yet</option>
+      </select>
+    </div>
+
+    <div style="margin-bottom: 1.5rem;">
+      <label style="display: block; font-size: 0.78rem; font-weight: 500; color: var(--fern); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px;">Anything you'd like us to know? (optional)</label>
+      <textarea name="entry.1900691399" rows="3" placeholder="e.g. My child has anxiety and I'm hoping this will help. Or — I have friends in my neighborhood who'd also be interested." style="width: 100%; padding: 0.65rem 0.9rem; border-radius: 4px; border: 1px solid rgba(168,213,168,0.3); background: rgba(255,255,255,0.08); color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; resize: vertical;"></textarea>
+    </div>
+
+    <button type="submit" style="width: 100%; background: var(--gold); color: var(--bark); border: none; padding: 0.9rem; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; cursor: pointer; letter-spacing: 0.01em; transition: background 0.2s;">
+      Join the interest list →
+    </button>
+
+    <p id="form-confirm" style="display:none; margin-top: 1rem; text-align: center; color: var(--mint); font-size: 0.9rem; line-height: 1.6;">
+      Thank you — you're on the list! Our team will be in touch personally once a session is forming in your area.
+    </p>
+
+  </form>
+
+  <div style="max-width: 620px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; text-align: center; margin-bottom: 2rem;">
+    <div style="border: 1px solid rgba(168,213,168,0.15); border-radius: 4px; padding: 1.25rem 1rem;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); font-weight: 600; margin-bottom: 0.3rem;">Mission Fremont</div>
+      <div style="font-size: 0.8rem; color: var(--fern);">Our home base — sessions available now</div>
+    </div>
+    <div style="border: 1px solid rgba(168,213,168,0.15); border-radius: 4px; padding: 1.25rem 1rem;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); font-weight: 600; margin-bottom: 0.3rem;">Bay Area</div>
+      <div style="font-size: 0.8rem; color: var(--fern);">We travel to your city when a group of 5+ forms</div>
+    </div>
+    <div style="border: 1px solid rgba(168,213,168,0.15); border-radius: 4px; padding: 1.25rem 1rem;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); font-weight: 600; margin-bottom: 0.3rem;">12–15 kids</div>
+      <div style="font-size: 0.8rem; color: var(--fern);">Small group format — every session stays personal</div>
+    </div>
+  </div>
+
+  <div style="max-width: 620px; margin: 0 auto; text-align: center;">
+    <p class="cta-disclaimer" style="margin-bottom: 0.75rem;">Joining the interest list does not commit you to enrollment. Our team will reach out personally to confirm details once a session is forming near you.</p>
+    <p class="cta-disclaimer">This program is educational in nature and is not a substitute for professional mental health support.</p>
+  </div>
 </section>
+
+<script>
+function showConfirm() {
+  setTimeout(function() {
+    document.getElementById('form-confirm').style.display = 'block';
+  }, 500);
+}
+</script>
 
 <!-- FOOTER -->
 <footer>
